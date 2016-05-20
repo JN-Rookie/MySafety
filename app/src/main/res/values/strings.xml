@@ -6,4 +6,6 @@
     <string name="leadtext_description1">Small icon 1</string>
     <string name="leadtext_description2">Small icon 2</string>
     <string name="leadtext_description3">Small icon 1</string>
+    <!--通讯大全界面-->
+    <string name="tel_title">一站式服务平台</string>
 </resources>

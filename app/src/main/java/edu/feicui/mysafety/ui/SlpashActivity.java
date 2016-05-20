@@ -1,6 +1,8 @@
 package edu.feicui.mysafety.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +16,12 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 import edu.feicui.mysafety.R;
+import edu.feicui.mysafety.service.MusicService;
 
 
 public class SlpashActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+    public static final String SPLASH_CONFIG = "splash_config";
+    public static final String IS_FIRST_RUN  = "isFirstRun";
     ImageView icons0, icons1, icons2;
     private static final String TAG = "SlpashActivity";
     private ViewPager       mViewPager;
@@ -30,8 +35,27 @@ public class SlpashActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_slpash);
-        initview();
+        Intent serviceIntent = new Intent(this, MusicService.class);
+        startService(serviceIntent);
+        SharedPreferences preferences = getSharedPreferences(SPLASH_CONFIG, Context.MODE_PRIVATE);
+        boolean isFirstRun = preferences.getBoolean(IS_FIRST_RUN, true);
+//        判断是否是第一次运行程序
+        if (!isFirstRun) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            setContentView(R.layout.activity_slpash);
+            initview();
+        }
+    }
+
+    //    保存第一次运行的sp
+    private void savePreferences() {
+        SharedPreferences preferences = getSharedPreferences(SPLASH_CONFIG, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(IS_FIRST_RUN, false);
+        editor.apply();
     }
 
     private void initview() {
@@ -164,6 +188,10 @@ public class SlpashActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        Intent musicIntent = new Intent(this, MusicService.class);
+        stopService(musicIntent);
+        finish();
+        savePreferences();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

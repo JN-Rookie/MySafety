@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_margin="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.feicui.mysafety.ui.PhonePotSIMActivity">
+    <TextView
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:textSize="35sp"
+        android:text="绑定安全号码界面"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="20sp"
+        android:text="绑定安全号码功能：\n您可以使用安全号码来操作已丢失的手机"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:inputType="phone"
+        android:id="@+id/edt_num"
+        android:hint="请输入安全号码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_simnum"
+        android:textSize="20sp"
+        android:text="使用手机联系人作为安全号码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_numlogin"
+        android:textSize="20sp"
+        android:text="确认安全号码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:onClick="prev"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:text="上一步"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:onClick="next"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="下一步"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</LinearLayout>

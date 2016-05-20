@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.feicui.mysafety.ui.PhonemgrActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_layout_battery"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+    <ProgressBar
+        android:id="@+id/pb_battery"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progressbar_battery"/>
+
+    <View
+        android:background="#FFFF8C00"
+        android:layout_width="10dp"
+        android:layout_height="60dp"
+        android:layout_weight="0"/>
+
+    <TextView
+        android:id="@+id/tv_battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="0"
+        android:text="80%"
+        android:textColor="#FF00AA00" />
+    </LinearLayout>
+    <ListView
+        android:layout_below="@+id/ll_layout_battery"
+        android:id="@+id/iv_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true">
+    </ListView>
+</RelativeLayout>
