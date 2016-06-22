@@ -43,7 +43,7 @@ public class DBRead {
         return true;
     }
 
-    //    读取数据库中classlist表中的数据，并把数据写入到TelclassApdater中
+    //    读取数据库中classlist表中的数据，并把数据写入到Telclassbean中
     public static ArrayList<Telclassbean> readTeldbClasslist() {
         ArrayList<Telclassbean> bean = new ArrayList<>();
         SQLiteDatabase db = null;
